@@ -17,9 +17,18 @@ const StyledEventFieldDiffValue = styled.div`
   align-items: center;
   color: ${themeCssVariables.font.color.primary};
   display: flex;
+  flex: 0 1 auto;
+  max-width: 100%;
+  min-width: 0;
   overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+
+  & > * {
+    max-width: 100%;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
 `;
 
 export const EventFieldDiffValue = ({
