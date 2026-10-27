@@ -17,7 +17,10 @@ const StyledContainer = styled.div`
   display: flex;
   flex: 1;
   flex-direction: column;
+  height: 100%;
   min-height: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
 `;
 
 type CampaignBodyFieldProps = {
