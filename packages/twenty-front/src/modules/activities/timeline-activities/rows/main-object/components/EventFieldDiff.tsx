@@ -26,6 +26,7 @@ const StyledEventFieldDiffContainer = styled.div`
   gap: ${themeCssVariables.spacing[1]};
   height: 24px;
   max-width: 100%;
+  min-width: 0;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -82,7 +83,16 @@ export const EventFieldDiff = ({
       isObjectEmpty(diffRecord));
 
   return (
-    <StyledEventFieldDiffContainer>
+    <StyledEventFieldDiffContainer
+      title={
+        typeof diffRecord === 'object' && diffRecord !== null
+          ? Object.values(diffRecord)
+              .filter((val) => val !== null && val !== undefined)
+              .map(String)
+              .join(', ')
+          : String(diffRecord ?? '')
+      }
+    >
       <EventFieldDiffLabel fieldMetadataItem={fieldMetadataItem} />
       <StyledArrowContainer>→</StyledArrowContainer>
       {isUpdatedToEmpty ? (
